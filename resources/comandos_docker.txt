@@ -1,0 +1,13 @@
+sudo docker pull mysql/mysql-server
+
+sudo docker run --name=mysql_sads -e MYSQL_ROOT_HOST=% -p 3306:3306 -d mysql/mysql-server
+//sudo docker run --name=mysql_sads -d mysql/mysql-server
+
+sudo docker logs mysql_sads 2>&1 |grep GENERATED
+
+sudo docker exec -it mysql_sads mysql -u root -p
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'ubuntu';
+ALTER USER 'root'@'%' IDENTIFIED BY 'ubuntu';
+
+mysql -u ubuntu -p -h 127.0.0.1 < dados.sql

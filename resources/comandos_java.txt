@@ -1,0 +1,8 @@
+javac *.java
+java -cp ".:./resources/mysql-connector-j-8.0.31.jar" TodoApp
+
+ou
+
+
+export CLASSPATH=`pwd`/resources/mysql-connector-j-8.0.31.jar:$CLASSPATH
+java TodoApp
